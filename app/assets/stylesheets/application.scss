@@ -16,3 +16,23 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+* {
+	border: 0;
+	padding: 0;
+}
+
+#period {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#period td, #period th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#period tr:nth-child(even){background-color: #f2f2f2;}
+
+#period tr:hover {background-color: #ddd;}

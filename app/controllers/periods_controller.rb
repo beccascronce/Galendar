@@ -4,7 +4,18 @@ class PeriodsController < ApplicationController
   # GET /periods
   # GET /periods.json
   def index
+    @current_period = Period.where(user_id: current_user.id).last
     @periods = Period.all
+  end
+
+  def start_period
+    Period.create(user_id: current_user.id, start_date: Time.now)
+    redirect_to root_path
+  end
+
+  def end_period
+    Period.where(user_id: current_user.id).last.update(end_date: Time.now)
+    redirect_to root_path
   end
 
   # GET /periods/1

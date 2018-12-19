@@ -1,8 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<% if on_my_period?(@current_period)%>
+  <%= link_to end_period_path do %>
+    End Period
+  <% end %>
+
+<% else %>
+  <%= link_to start_period_path do %>
+    Start Period
+  <% end %> 
+<% end %>
+
 <h1>Periods</h1>
 
-<table>
+<table <id id="period"></id>>
   <thead>
     <tr>
       <th>Start date</th>
@@ -15,8 +26,8 @@
   <tbody>
     <% @periods.each do |period| %>
       <tr>
-        <td><%= period.start_date %></td>
-        <td><%= period.end_date %></td>
+        <td><%= period.start_date.strftime("%m/%d/%y") %></td>
+        <td><%= period.end_date.strftime("%m/%d/%y") %></td>
         <td><%= period.user_id %></td>
         <td><%= link_to 'Show', period %></td>
         <td><%= link_to 'Edit', edit_period_path(period) %></td>
@@ -26,6 +37,4 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Period', new_period_path %>

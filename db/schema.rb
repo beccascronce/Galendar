@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_234120) do
+ActiveRecord::Schema.define(version: 2018_12_18_164602) do
 
   create_table "periods", force: :cascade do |t|
-    t.integer "start_date"
-    t.integer "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
